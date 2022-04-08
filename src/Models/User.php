@@ -431,6 +431,7 @@ class User extends Model
      */
     public function online_ip_count(): int
     {
+        return 0;
         // 根据 IP 分组去重
         $total = Ip::where('datetime', '>=', time() - 90)->where('userid', $this->id)->orderBy('userid', 'desc')->groupBy('ip')->get();
         $ip_list = [];
